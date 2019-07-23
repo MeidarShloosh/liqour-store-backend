@@ -186,18 +186,21 @@ app.post('/logout', (req, res) => {
     try{
         const session = req.cookies.session;
         const username = sessionToUserMap[session];
-        res.clearCookie('session');
+
         if(username !== undefined){
             delete sessionToUserMap[session];
+            res.clearCookie('session');
             res.end();
         }else{
             res.status(404);
+            res.clearCookie('session');
             res.send("Could not find user");
         }
+
     }
     catch (e) {
         res.status(404);
-        res.send("Could not find user");
+        res.send(e.toString());
     }
 });
 
