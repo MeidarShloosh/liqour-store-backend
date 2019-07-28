@@ -1,0 +1,26 @@
+{
+	"Cocktails":[
+		{
+			"cocktailId":1,
+			"cocktailName": "Bloody Mary",
+			"description": "bla bla",
+			"price": 45,
+			"items":[
+					{
+						"itemId":1,
+						"name": "Goldstar Unfilterd",
+						"price": 15,
+						"category": "Beer",
+						"image":""
+					},
+					{
+						"itemId":1,
+						"name": "Goldstar Unfilterd",
+						"price": 15,
+						"category": "Beer",
+						"image":""
+					}
+			]
+		}
+	]
+}

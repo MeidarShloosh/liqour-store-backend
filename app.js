@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
@@ -29,11 +30,23 @@ let credentials = {
   "admin": {password:"admin", isAdmin: true, username:"admin"}
 };
 
+let store = {
+
+};
+
+let cart = {
+
+};
+
 let sessionToUserMap = {
 
 };
 
-app.set('port', 8001);
+let logger = {
+
+};
+
+app.set('port', 3000);
 
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -76,9 +89,17 @@ app.get('/', function(req, res) {
     res.redirect('/login');
 });*/
 
+/*
+
+items.forEach( item =>{
+// If item doesn't exist in cart - addItemToCart function
+    otherList.push({...item, quantity: 1});
+})
+*/
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
+// LOGIN
 app.route('/login')
     .post((req, res) => {
       var username = req.body.username;
@@ -171,7 +192,7 @@ app.get('/user', (req, res) => {
         if(user !== undefined){
             res.json({username, isAdmin: user.isAdmin});
             res.end();
-        }else{
+        } else {
             res.status(404);
             res.send("Could not find user");
         }
@@ -204,6 +225,71 @@ app.post('/logout', (req, res) => {
     }
 });
 
+// STORE
+
+app.put('/addItemToStore', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    if (credentials[username].isAdmin)
+    {
+        const itemToAdd = {...req.body.item};
+        store.push(itemToAdd);
+        updateJSON(username, "store", itemToAdd, "added");
+    }
+    else
+    {
+        res.send(403); // Unauthorized (Forbidden)
+    }
+});
+
+app.update('/updateStoreItem', (req, res) => {
+    var updatedItem = req.body.item;
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    if (credentials[username].isAdmin) {
+        store.forEach(item => {
+            if (item.itemId == updatedItem.itemId) {
+                item.name = updatedItem.name;
+                item.price = updatedItem.price;
+                item.category = updatedItem.category;
+                item.image = updatedItem.image;
+            }
+        });
+        updateJSON(username, "store", updatedItem, "updated");
+    }
+    else
+    {
+        res.send(403); // Unauthorized (Forbidden)
+    }
+});
+
+app.delete('/removeItemFromStore/:itemId', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    var removedItem;
+    if (credentials[username].isAdmin) {
+        var itemIdToRemove = req.params["itemId"];
+        for( var i = 0; i < store.length-1; i++){
+            if (store[i].itemId == itemIdToRemove) {
+                store.splice(i, 1);
+                removedItem = store[i];
+            }
+        }
+        updateJSON(username, "store", removedItem,"removed");
+    }
+    else
+    {
+        res.send(403); // Unauthorized (Forbidden)
+    }
+});
+
+app.get('/store', (req, res) => {
+    res.json(store);
+    res.end();
+});
+
+// CART
+
 
 
 // Handling 404 error
@@ -213,3 +299,47 @@ app.use((req, res, next) => {
 
 app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
 
+// HELPERS
+
+function updateJSON(user, type, item, subType)
+{
+    var jsonFile;
+    var jsonData;
+    var message;
+    switch (type) {
+        case "store":
+            jsonFile = "Store.json";
+            jsonData = JSON.stringify(store);
+            message = `${user} has ${subType} an item in the store. Item Name: ${item.name}, Item ID: ${item.itemId}`;
+            break;
+        case "cart":
+            jsonFile = "Cart.json";
+            jsonData = JSON.stringify(cart);
+            message = `${user} has added a new item to the cart. Item ID: ${item.name}`;
+            break;
+        case "credentials":
+            jsonFile = "Credentials.json";
+            jsonData = JSON.stringify(credentials);
+            message = `${user} has registered.`;
+    }
+
+    fs.writeFile(jsonFile, jsonData,
+        function(error) {
+            if (error) throw error;
+            logActivity(message)
+        });
+}
+
+function logActivity(message)
+{
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    logger.push(`${date} || ${time}:    ${message}`);
+
+    var jsonData = JSON.stringify(logger);
+    fs.writeFile("log.json", jsonData,
+        function(error) {
+            if (error) throw error;
+        });
+}

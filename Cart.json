@@ -1,0 +1,21 @@
+{
+	"Cart" :{
+		"admin": [],
+		"niv":[],
+		"meidar":[]
+	}
+}
+
+/*
+item format in cart:
+{
+	"itemId":1,
+	"name": "Goldstar Unfilterd",
+	"price": 15,
+	"category": "Beer",
+	"image":"",
+	"quantity": 1
+}
+
+Cart - itemFormat
+*/
