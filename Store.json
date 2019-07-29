@@ -1,11 +1,18 @@
 {
 	"Store":[
 		{
-			"itemId":1,
+			"itemId": 1,
 			"name": "Goldstar Unfilterd",
 			"price": 15,
 			"category": "Beer",
-			"image":""
+			"image": "https://supply.layam.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/3/7/3717429.jpg"
+		},
+		{
+			"itemId": 2,
+			"name": "Smirnoff",
+			"price": 40,
+			"category": "Vodka",
+			"image": "https://edgmedia.bws.com.au/bws/media/products/907623-1.png?impolicy=Prod_MD"
 		}
 	]
 }

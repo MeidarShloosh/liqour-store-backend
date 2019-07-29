@@ -34,7 +34,15 @@ let store = {
 
 };
 
-let cart = {
+let cocktails = {
+
+};
+
+let accesories = {
+
+};
+
+let carts = {
 
 };
 
@@ -42,11 +50,11 @@ let sessionToUserMap = {
 
 };
 
-let logger = {
+let logs = {
 
 };
 
-app.set('port', 3000);
+app.set('port', 8001);
 
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -146,6 +154,9 @@ app.route('/registration')
           res.send('Username already exists');
       } else {
           credentials[username]= {password, username, isAdmin: false};
+          updateJSON(username, "credentials");
+          carts[username] = [];
+          updateJSON(username, "cart");
           const token = new TokenGenerator(256, TokenGenerator.BASE62).generate();
           const expiration = rememberMe ? 9999999999 : 300000;
           res.cookie("session", token,
@@ -242,7 +253,7 @@ app.put('/addItemToStore', (req, res) => {
     }
 });
 
-app.update('/updateStoreItem', (req, res) => {
+app.post('/updateStoreItem', (req, res) => {
     var updatedItem = req.body.item;
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
@@ -285,12 +296,55 @@ app.delete('/removeItemFromStore/:itemId', (req, res) => {
 
 app.get('/store', (req, res) => {
     res.json(store);
-    res.end();
+    console.log(JSON.stringify(store))
 });
 
 // CART
 
+app.put('/addItemToCart', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    var cart = carts[username];
+    var item = findItemById(req.body.itemId);
+    if (item != "Undefind")
+        cart.push({...item, quantity: req.body.quantity});
+    else
+        res.send(400);
+});
 
+app.post('/updateCartItemQuantity', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    var cart = carts[username];
+    cart.forEach(item => {
+        if (item.itemId == req.body.itemId) {
+            if (quantity == 0) {
+                cart.remove(item); // TODO: Check if splice is needed here
+            } else {
+                item.quantity = req.body.quantity;
+            }
+        }
+    });
+});
+
+app.delete('/removeItemFromCart/:itemId', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    var cart = carts[username];
+    cart.forEach(item => {
+        if (item.itemId == req.params["itemId"]) {
+            cart.remove(item); // TODO: Check if splice is needed here
+        }
+    });
+});
+
+app.get('/cart', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    var cart = carts[username];
+    res.json(cart);
+    res.end();
+});
 
 // Handling 404 error
 app.use((req, res, next) => {
@@ -298,6 +352,12 @@ app.use((req, res, next) => {
 });
 
 app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
+
+// LOAD DATA
+
+credentials = JSON.parse(fs.readFileSync('Credentials.json'));
+store = JSON.parse(fs.readFileSync('Store.json'));
+carts = JSON.parse(fs.readFileSync('Cart.json'));
 
 // HELPERS
 
@@ -335,11 +395,40 @@ function logActivity(message)
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    logger.push(`${date} || ${time}:    ${message}`);
+    logs.push(`${date} || ${time}:    ${message}`);
 
-    var jsonData = JSON.stringify(logger);
+    var jsonData = JSON.stringify(logs);
     fs.writeFile("log.json", jsonData,
         function(error) {
             if (error) throw error;
         });
+}
+
+function findItemById(itemId)
+{
+    for (var i = 0; i < store.length - 1; i++)
+    {
+        if (itemId == store[i].itemId)
+        {
+            return store[i];
+        }
+    }
+
+    for (var j = 0; j < cocktails.length - 1; j++)
+    {
+        if (itemId == cocktails[i].itemId)
+        {
+            return cocktails[i];
+        }
+    }
+
+    for (var k = 0; k < accesories.length - 1; k++)
+    {
+        if (itemId == accesories[i].itemId)
+        {
+            return accesories[i];
+        }
+    }
+
+    return "Undefind";
 }

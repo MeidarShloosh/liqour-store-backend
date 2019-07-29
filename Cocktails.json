@@ -3,7 +3,7 @@
 		{
 			"cocktailId":1,
 			"cocktailName": "Bloody Mary",
-			"description": "bla bla",
+			"description": "Red drink",
 			"price": 45,
 			"items":[
 					{
@@ -14,10 +14,10 @@
 						"image":""
 					},
 					{
-						"itemId":1,
-						"name": "Goldstar Unfilterd",
+						"itemId":2,
+						"name": "Smirnoff",
 						"price": 15,
-						"category": "Beer",
+						"category": "Vodka",
 						"image":""
 					}
 			]
