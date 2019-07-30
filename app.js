@@ -251,10 +251,12 @@ app.put('/addItemToStore', (req, res) => {
         store.push(itemToAdd);
         updateJSON(username, "store", itemToAdd, "added");
         res.status(200);
+        res.end();
     }
     else
     {
         res.status(403); // Unauthorized (Forbidden)
+        res.end();
     }
 });
 
@@ -273,10 +275,12 @@ app.post('/updateStoreItem', (req, res) => {
         });
         updateJSON(username, "store", updatedItem, "updated");
         res.status(200);
+        res.end();
     }
     else
     {
         res.status(403); // Unauthorized (Forbidden)
+        res.end();
     }
 });
 
@@ -295,10 +299,12 @@ app.delete('/removeItemFromStore/:itemId', (req, res) => {
         }
         updateJSON(username, "store", removedItem,"removed");
         res.status(200);
+        res.end();
     }
     else
     {
         res.status(403); // Unauthorized (Forbidden)
+        res.end();
     }
 });
 
@@ -316,9 +322,12 @@ app.put('/addItemToCart', (req, res) => {
     let item = findItemById(req.body.itemId, type);
     if (!addItemToCart(cart, item, req.body.quantity)) {
         res.status(400);
+        res.end();
         return;
     }
     updateJSON(username, "cart", item,"added");
+    res.status(200);
+    res.end();
 });
 
 app.post('/updateCartItemQuantity', (req, res) => {
@@ -335,6 +344,7 @@ app.post('/updateCartItemQuantity', (req, res) => {
     }
     updateJSON(username, "cart", updatedItem,"updated");
     res.status(200);
+    res.end();
 });
 
 app.delete('/removeItemFromCart/:itemId', (req, res) => {
@@ -351,6 +361,7 @@ app.delete('/removeItemFromCart/:itemId', (req, res) => {
     }
     updateJSON(username, "cart", removedItem,"removed");
     res.status(200);
+    res.end();
 });
 
 app.get('/cart', (req, res) => {
@@ -367,6 +378,7 @@ app.post('/checkout', (req, res) => {
     updateJSON(username, "checkout");
     res.status(200);
     res.send(`Thank you for using our shop to purchase alcoholic beverages & other related stuff, ${username}.`);
+    res.end();
 });
 
 // COCKTAILS
@@ -379,9 +391,12 @@ app.put('/addCocktailToCart', (req, res) => {
     cocktailItems.forEach(item => {
        if (!addItemToCart(cart, item, 1)) {
            res.status(400);
+           res.end();
            return;
        }
     });
+    res.status(200);
+    res.end();
 });
 
 app.get('/cocktails', (req, res) => {
@@ -425,7 +440,8 @@ app.get('/logs/:batchNumber', (req, res) => {
 
 // Handling 404 error
 app.use((req, res, next) => {
-  res.status(404).send("The page you requested cannot be found.")
+    res.status(404).send("The page you requested cannot be found.")
+    res.end();
 });
 
 app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
