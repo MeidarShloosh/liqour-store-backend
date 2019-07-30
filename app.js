@@ -250,10 +250,11 @@ app.put('/addItemToStore', (req, res) => {
         const itemToAdd = {...req.body.item};
         store.push(itemToAdd);
         updateJSON(username, "store", itemToAdd, "added");
+        res.status(200);
     }
     else
     {
-        res.send(403); // Unauthorized (Forbidden)
+        res.status(403); // Unauthorized (Forbidden)
     }
 });
 
@@ -271,10 +272,11 @@ app.post('/updateStoreItem', (req, res) => {
             }
         });
         updateJSON(username, "store", updatedItem, "updated");
+        res.status(200);
     }
     else
     {
-        res.send(403); // Unauthorized (Forbidden)
+        res.status(403); // Unauthorized (Forbidden)
     }
 });
 
@@ -292,10 +294,11 @@ app.delete('/removeItemFromStore/:itemId', (req, res) => {
             }
         }
         updateJSON(username, "store", removedItem,"removed");
+        res.status(200);
     }
     else
     {
-        res.send(403); // Unauthorized (Forbidden)
+        res.status(403); // Unauthorized (Forbidden)
     }
 });
 
@@ -311,17 +314,10 @@ app.put('/addItemToCart', (req, res) => {
     let cart = carts[username];
     let type = getItemType(req.body.itemId);
     let item = findItemById(req.body.itemId, type);
-    if (item != "Undefind" && !checkItemInCart(cart, item)) {
-        addItemToCart(cart, item, req.body.quantity);
+    if (!addItemToCart(cart, item, req.body.quantity)) {
+        res.status(400);
+        return;
     }
-    else if(checkItemInCart(cart, item)) {
-        cart.forEach(cartItem=>{
-           if(cartItem.itemId === item.itemId)
-               cartItem.quantity += 1;
-        });
-    }
-    else
-        res.send(400);
     updateJSON(username, "cart", item,"added");
 });
 
@@ -338,6 +334,7 @@ app.post('/updateCartItemQuantity', (req, res) => {
         }
     }
     updateJSON(username, "cart", updatedItem,"updated");
+    res.status(200);
 });
 
 app.delete('/removeItemFromCart/:itemId', (req, res) => {
@@ -353,6 +350,7 @@ app.delete('/removeItemFromCart/:itemId', (req, res) => {
         }
     }
     updateJSON(username, "cart", removedItem,"removed");
+    res.status(200);
 });
 
 app.get('/cart', (req, res) => {
@@ -360,20 +358,30 @@ app.get('/cart', (req, res) => {
     const username = sessionToUserMap[session];
     let cart = carts[username];
     res.json(cart);
-    res.end();
 });
 
 app.post('/checkout', (req, res) => {
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
+    carts[username] = [];
+    updateJSON(username, "checkout");
+    res.status(200);
     res.send(`Thank you for using our shop to purchase alcoholic beverages & other related stuff, ${username}.`);
 });
 
 // COCKTAILS
 
 app.put('/addCocktailToCart', (req, res) => {
-    let cocktail = findItemById(req.body.cocktailId, "cocktail");
-    res.json(cocktail.items)
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    let cart = carts[username];
+    let cocktailItems = findItemById(req.body.cocktailId, "cocktail").items;
+    cocktailItems.forEach(item => {
+       if (!addItemToCart(cart, item, 1)) {
+           res.status(400);
+           return;
+       }
+    });
 });
 
 app.get('/cocktails', (req, res) => {
@@ -390,6 +398,29 @@ app.get('/snacks', (req, res) => {
 
 app.get('/accessories', (req, res) => {
    res.json(accessories);
+});
+
+// LOGS
+
+app.get('/logs/:batchNumber', (req, res) => {
+    let batch = [];
+    let minBatchNumber = req.params["batchNumber"] * 20;
+    let maxBatchNumber = req.params["batchNumber"] * 20 + 20;
+    if (minBatchNumber >= logs.length) // SAFETY CHECK
+    {
+        res.json([]);
+        return;
+    }
+    else if (maxBatchNumber > logs.length) {
+        maxBatchNumber = logs.length;
+    }
+
+    let i;
+    for (i = minBatchNumber; i < maxBatchNumber; i++) {
+        batch.push({...logs[i]});
+    }
+
+    res.json(batch);
 });
 
 // Handling 404 error
@@ -430,6 +461,12 @@ function updateJSON(user, type, item, subType)
             jsonFile = "Credentials.json";
             jsonData = JSON.stringify(credentials);
             message = `${user} has registered.`;
+            break;
+        case "checkout":
+            jsonFile = "Cart.json";
+            jsonData = JSON.stringify(carts);
+            message = `${user} has checkedout the cart.`;
+            break;
     }
 
     fs.writeFile(jsonFile, jsonData,
@@ -505,5 +542,18 @@ function checkItemInCart(cart, itemToCheck)
 
 function addItemToCart(cart, item, quantity)
 {
-    cart.push({...item, quantity: quantity});
+    let inCart = checkItemInCart(cart, item);
+    if (item != "Undefind" && !inCart) {
+        cart.push({...item, quantity: quantity});
+        return true;
+    }
+    else if(inCart) {
+        cart.forEach(cartItem=>{
+            if(cartItem.itemId === item.itemId)
+                cartItem.quantity += 1;
+        });
+        return true;
+    }
+
+    return false;
 }
