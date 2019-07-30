@@ -38,7 +38,11 @@ let cocktails = {
 
 };
 
-let accesories = {
+let snacks = {
+
+}
+
+let accessories = {
 
 };
 
@@ -50,9 +54,9 @@ let sessionToUserMap = {
 
 };
 
-let logs = {
+let logs = [
 
-};
+];
 
 app.set('port', 8001);
 
@@ -110,12 +114,12 @@ app.use(bodyParser.json());
 // LOGIN
 app.route('/login')
     .post((req, res) => {
-      var username = req.body.username;
-      var password = req.body.password;
+      let username = req.body.username;
+      let password = req.body.password;
       const rememberMe = req.body.rememberMe;
       console.log("Login request initiated. Username:", username);
       if (username && password) {
-        var user = credentials[username];
+        let user = credentials[username];
         if (user && password == user.password) {
           console.log("Login Succeeded for user:", username);
           // creating the session token
@@ -143,11 +147,11 @@ app.route('/login')
 
 app.route('/registration')
     .post((req, res) => {
-      var username = req.body.username;
-      var password = req.body.password;
+      let username = req.body.username;
+      let password = req.body.password;
       const rememberMe = req.body.rememberMe;
 
-      var user = credentials[username];
+      let user = credentials[username];
 
       if (user) {
           res.status(400);
@@ -254,7 +258,7 @@ app.put('/addItemToStore', (req, res) => {
 });
 
 app.post('/updateStoreItem', (req, res) => {
-    var updatedItem = req.body.item;
+    let updatedItem = req.body.item;
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
     if (credentials[username].isAdmin) {
@@ -277,10 +281,11 @@ app.post('/updateStoreItem', (req, res) => {
 app.delete('/removeItemFromStore/:itemId', (req, res) => {
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
-    var removedItem;
+    let removedItem;
     if (credentials[username].isAdmin) {
-        var itemIdToRemove = req.params["itemId"];
-        for( var i = 0; i < store.length-1; i++){
+        let itemIdToRemove = req.params["itemId"];
+        let i;
+        for(i = 0; i < store.length; i++){
             if (store[i].itemId == itemIdToRemove) {
                 store.splice(i, 1);
                 removedItem = store[i];
@@ -296,7 +301,6 @@ app.delete('/removeItemFromStore/:itemId', (req, res) => {
 
 app.get('/store', (req, res) => {
     res.json(store);
-    console.log(JSON.stringify(store))
 });
 
 // CART
@@ -304,46 +308,82 @@ app.get('/store', (req, res) => {
 app.put('/addItemToCart', (req, res) => {
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
-    var cart = carts[username];
-    var item = findItemById(req.body.itemId);
-    if (item != "Undefind")
-        cart.push({...item, quantity: req.body.quantity});
+    let cart = carts[username];
+    let type = getItemType(req.body.itemId);
+    let item = findItemById(req.body.itemId, type);
+    if (item != "Undefind" && !checkItemInCart(cart, item)) {
+        addItemToCart(cart, item, req.body.quantity);
+    }
+    else if(checkItemInCart(cart, item)) {
+        cart.forEach(cartItem=>{
+           if(cartItem.itemId === item.itemId)
+               cartItem.quantity += 1;
+        });
+    }
     else
         res.send(400);
+    updateJSON(username, "cart", item,"added");
 });
 
 app.post('/updateCartItemQuantity', (req, res) => {
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
-    var cart = carts[username];
-    cart.forEach(item => {
-        if (item.itemId == req.body.itemId) {
-            if (quantity == 0) {
-                cart.remove(item); // TODO: Check if splice is needed here
-            } else {
-                item.quantity = req.body.quantity;
-            }
+    let cart = carts[username];
+    let updatedItem;
+    let i;
+    for(i = 0; i < cart.length; i++){
+        if (cart[i].itemId == req.body.itemId) {
+            cart[i].quantity = req.body.quantity;
+            updatedItem = cart[i];
         }
-    });
+    }
+    updateJSON(username, "cart", updatedItem,"updated");
 });
 
 app.delete('/removeItemFromCart/:itemId', (req, res) => {
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
-    var cart = carts[username];
-    cart.forEach(item => {
-        if (item.itemId == req.params["itemId"]) {
-            cart.remove(item); // TODO: Check if splice is needed here
+    let cart = carts[username];
+    let removedItem;
+    let i;
+    for(i = 0; i < cart.length; i++){
+        if (cart[i].itemId == req.params["itemId"]) {
+            removedItem = {...cart[i]};
+            cart.splice(i, 1);
         }
-    });
+    }
+    updateJSON(username, "cart", removedItem,"removed");
 });
 
 app.get('/cart', (req, res) => {
     const session = req.cookies.session;
     const username = sessionToUserMap[session];
-    var cart = carts[username];
+    let cart = carts[username];
     res.json(cart);
     res.end();
+});
+
+// COCKTAILS
+
+app.put('/addCocktailToCart', (req, res) => {
+    let cocktail = findItemById(req.body.cocktailId, "cocktail");
+    res.json(cocktail.items)
+});
+
+app.get('/cocktails', (req, res) => {
+   res.json(cocktails);
+});
+
+// SNACKS
+
+app.get('/snacks', (req, res) => {
+   res.json(snacks);
+});
+
+// ACCESSORIES
+
+app.get('/accesories', (req, res) => {
+   res.json(accessories);
 });
 
 // Handling 404 error
@@ -358,24 +398,27 @@ app.listen(app.get('port'), () => console.log(`App started on port ${app.get('po
 credentials = JSON.parse(fs.readFileSync('Credentials.json'));
 store = JSON.parse(fs.readFileSync('Store.json'));
 carts = JSON.parse(fs.readFileSync('Cart.json'));
+cocktails = JSON.parse(fs.readFileSync('Cocktails.json'));
+snacks = JSON.parse(fs.readFileSync('Snacks.json'));
+accessories = JSON.parse(fs.readFileSync('Accessories.json'));
 
 // HELPERS
 
 function updateJSON(user, type, item, subType)
 {
-    var jsonFile;
-    var jsonData;
-    var message;
+    let jsonFile;
+    let jsonData;
+    let message;
     switch (type) {
         case "store":
             jsonFile = "Store.json";
             jsonData = JSON.stringify(store);
-            message = `${user} has ${subType} an item in the store. Item Name: ${item.name}, Item ID: ${item.itemId}`;
+            message = `${user} has ${subType} an item in the store. Item Name: ${item.name}, Item Name: ${item.name} Item ID: ${item.itemId}`;
             break;
         case "cart":
             jsonFile = "Cart.json";
-            jsonData = JSON.stringify(cart);
-            message = `${user} has added a new item to the cart. Item ID: ${item.name}`;
+            jsonData = JSON.stringify(carts);
+            message = `${user} has ${subType} an item in the cart. Item Name: ${item.name} Item ID: ${item.itemId}`;
             break;
         case "credentials":
             jsonFile = "Credentials.json";
@@ -392,43 +435,69 @@ function updateJSON(user, type, item, subType)
 
 function logActivity(message)
 {
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     logs.push(`${date} || ${time}:    ${message}`);
 
-    var jsonData = JSON.stringify(logs);
-    fs.writeFile("log.json", jsonData,
+    let jsonData = JSON.stringify(logs);
+    fs.writeFile("Log.json", jsonData,
         function(error) {
             if (error) throw error;
         });
 }
 
-function findItemById(itemId)
+function getItemType(itemId)
 {
-    for (var i = 0; i < store.length - 1; i++)
-    {
-        if (itemId == store[i].itemId)
-        {
-            return store[i];
-        }
-    }
+    let splitted = itemId.split("_");
+    return splitted[0];
+}
 
-    for (var j = 0; j < cocktails.length - 1; j++)
-    {
-        if (itemId == cocktails[i].itemId)
-        {
-            return cocktails[i];
+function findItemById(itemId, type)
+{
+    if (type === "store") {
+        let i;
+        for (i = 0; i < store.length; i++) {
+            if (itemId == store[i].itemId) {
+                return store[i];
+            }
         }
-    }
-
-    for (var k = 0; k < accesories.length - 1; k++)
-    {
-        if (itemId == accesories[i].itemId)
-        {
-            return accesories[i];
+    } else if (type === "snack") {
+        let j;
+        for (j = 0; j < snacks.length; j++) {
+            if (itemId == snacks[j].itemId) {
+                return snacks[j];
+            }
+        }
+    } else if (type === "accessory") {
+        let k;
+        for (k = 0; k < accessories.length; k++) {
+            if (itemId == accessories[k].itemId) {
+                return accessories[k];
+            }
+        }
+    } else if (type === "cocktail") {
+        let x;
+        for (x = 0; x < cocktails.length; x++) {
+            if (itemId == cocktails[x].itemId) {
+                return cocktails[x];
+            }
         }
     }
 
     return "Undefind";
+}
+
+function checkItemInCart(cart, itemToCheck)
+{
+    let exists = false;
+    cart.forEach(item => {
+        if (item.itemId == itemToCheck.itemId) exists = true;
+    });
+    return exists;
+}
+
+function addItemToCart(cart, item, quantity)
+{
+    cart.push({...item, quantity: quantity});
 }
