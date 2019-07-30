@@ -488,7 +488,7 @@ function updateJSON(user, type, item, subType)
     fs.writeFile(jsonFile, jsonData,
         function(error) {
             if (error) throw error;
-            logActivity(message)
+            logActivity(user, message)
         });
 }
 
