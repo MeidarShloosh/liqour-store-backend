@@ -432,7 +432,7 @@ app.get('/logs/:batchNumber', (req, res) => {
 
     let i;
     for (i = minBatchNumber; i < maxBatchNumber; i++) {
-        batch.push({...logs[i]});
+        batch.push(logs[i]);
     }
 
     res.json(batch);
@@ -466,22 +466,22 @@ function updateJSON(user, type, item, subType)
         case "store":
             jsonFile = "Store.json";
             jsonData = JSON.stringify(store);
-            message = `${user} has ${subType} an item in the store. Item Name: ${item.name}, Item Name: ${item.name} Item ID: ${item.itemId}`;
+            message = `${subType} an item in the store. Item Name: ${item.name}, Item ID: ${item.itemId}`;
             break;
         case "cart":
             jsonFile = "Cart.json";
             jsonData = JSON.stringify(carts);
-            message = `${user} has ${subType} an item in the cart. Item Name: ${item.name} Item ID: ${item.itemId}`;
+            message = `${subType} an item in the cart. Item Name: ${item.name}, Item ID: ${item.itemId}`;
             break;
         case "credentials":
             jsonFile = "Credentials.json";
             jsonData = JSON.stringify(credentials);
-            message = `${user} has registered.`;
+            message = 'Registered to the store.';
             break;
         case "checkout":
             jsonFile = "Cart.json";
             jsonData = JSON.stringify(carts);
-            message = `${user} has checkedout the cart.`;
+            message = 'Checked out the cart.';
             break;
     }
 
@@ -492,12 +492,18 @@ function updateJSON(user, type, item, subType)
         });
 }
 
-function logActivity(message)
+function logActivity(username, message)
 {
     let today = new Date();
     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    logs.push(`${date} || ${time}:    ${message}`);
+    let logObject = {};
+
+    logObject.username = username;
+    logObject.time = `${date} || ${time}`;
+    logObject.description = message;
+    //logs.push(`${date} || ${time}:    ${message}`);
+    logs.push(logObject);
 
     let jsonData = JSON.stringify(logs);
     fs.writeFile("Log.json", jsonData,
