@@ -3,7 +3,8 @@
 			"itemId": "cocktail_1",
 			"name": "Bloody Mary",
 			"description": "Red drink",
-			"price": 45,
+			"price": 55,
+			"image": "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18172207/BloodyMary-main.jpg",
 			"items":[
 					{
 						"itemId": 1,

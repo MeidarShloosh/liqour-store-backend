@@ -382,7 +382,7 @@ app.get('/snacks', (req, res) => {
 
 // ACCESSORIES
 
-app.get('/accesories', (req, res) => {
+app.get('/accessories', (req, res) => {
    res.json(accessories);
 });
 
@@ -449,7 +449,7 @@ function logActivity(message)
 
 function getItemType(itemId)
 {
-    let splitted = itemId.split("_");
+    let splitted = itemId.toString().split("_");
     return splitted[0];
 }
 
