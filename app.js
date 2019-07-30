@@ -394,6 +394,7 @@ app.put('/addCocktailToCart', (req, res) => {
            res.end();
            return;
        }
+       updateJSON(username, "cart", item,"added");
     });
     res.status(200);
     res.end();

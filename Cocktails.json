@@ -7,14 +7,14 @@
 			"image": "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18172207/BloodyMary-main.jpg",
 			"items":[
 					{
-						"itemId": 1,
+						"itemId": "store_1",
 						"name": "Goldstar Unfilterd",
 						"price": 15,
 						"category": "Beer",
 						"image": "https://supply.layam.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/3/7/3717429.jpg"
 					},
 					{
-						"itemId": 2,
+						"itemId": "store_2",
 						"name": "Smirnoff",
 						"price": 40,
 						"category": "Vodka",
