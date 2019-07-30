@@ -338,7 +338,7 @@ app.post('/updateCartItemQuantity', (req, res) => {
     let i;
     for(i = 0; i < cart.length; i++){
         if (cart[i].itemId == req.body.itemId) {
-            cart[i].quantity = req.body.quantity;
+            cart[i].quantity = parseInt(req.body.quantity);
             updatedItem = cart[i];
         }
     }
@@ -567,7 +567,7 @@ function addItemToCart(cart, item, quantity)
 {
     let inCart = checkItemInCart(cart, item);
     if (item != "Undefind" && !inCart) {
-        cart.push({...item, quantity: quantity});
+        cart.push({...item, quantity: parseInt(quantity)});
         return true;
     }
     else if(inCart) {
