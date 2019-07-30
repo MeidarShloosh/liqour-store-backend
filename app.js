@@ -363,6 +363,12 @@ app.get('/cart', (req, res) => {
     res.end();
 });
 
+app.post('/checkout', (req, res) => {
+    const session = req.cookies.session;
+    const username = sessionToUserMap[session];
+    res.send(`Thank you for using our shop to purchase alcoholic beverages & other related stuff, ${username}.`);
+});
+
 // COCKTAILS
 
 app.put('/addCocktailToCart', (req, res) => {

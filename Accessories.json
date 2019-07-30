@@ -3,14 +3,14 @@
     "itemId": "accessory_1",
     "name": "Premium Shaker",
     "price": 20,
-    "category": "shaker",
+    "category": "Accessories",
     "image": "https://images-na.ssl-images-amazon.com/images/I/51PfZk%2B87cL._SX425_.jpg"
   },
   {
     "itemId": "accessory_2",
     "name": "Ice Bucket",
     "price": 10,
-    "category": "bucket",
+    "category": "Accessories",
     "image": "https://5.imimg.com/data5/CI/BC/MY-6522548/ice-bucket-500x500.png"
   }
 ]

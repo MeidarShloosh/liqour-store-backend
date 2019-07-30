@@ -3,14 +3,14 @@
     "itemId": "snack_1",
     "name": "Salted Peanuts",
     "price": 10,
-    "category": "peanuts",
+    "category": "Snacks",
     "image": "https://images-na.ssl-images-amazon.com/images/I/81fiHSTpXaL._SL1500_.jpg"
   },
   {
     "itemId": "snack_2",
     "name": "Jumbo Coated Peanuts",
     "price": 30,
-    "category": "peanuts",
+    "category": "Snacks",
     "image": "https://cdn.shopify.com/s/files/1/0635/2427/products/Chilli_Peanuts_large.png?v=1453404810"
   }
 ]
