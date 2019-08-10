@@ -39,7 +39,7 @@
     "name": "Doritos",
     "price": 7,
     "category": "Crisps",
-    "image": "Images/Snacks/Doritos.png"
+    "image": "Images/Snacks/Doritos.jpeg"
   },
   {
     "itemId": "snack_7",
@@ -53,20 +53,20 @@
     "name": "Pizza Flavored Bisli",
     "price": 5,
     "category": "Bisli",
-    "image": "Images/Snacks/Bisli_Pizza.png"
+    "image": "Images/Snacks/Bisli_Pizza.jpg"
   },
   {
     "itemId": "snack_9",
     "name": "Onion & Sour Cream Flavored Nishnushim",
     "price": 15,
     "category": "Crisps",
-    "image": "Images/Snacks/Nishnushim.png"
+    "image": "Images/Snacks/Nishnushim.jpg"
   },
   {
     "itemId": "snack_10",
     "name": "Qabucs",
     "price": 5,
     "category": "Nuts",
-    "image": "Images/Snacks/Qabucs.png"
+    "image": "Images/Snacks/Qabucs.jpg"
   }
 ]

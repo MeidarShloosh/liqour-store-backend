@@ -4,139 +4,139 @@
 		"name": "Citrus Vodka",
 		"price": 45,
 		"category": "Vodka",
-		"image": "https://cdn2.bigcommerce.com/server5500/tpbc2s65/products/394/images/8458/Smirnoff_Citrus_Vodka_large__88873.1496774259.380.500.jpg?c=2"
+		"image": "Images/Store/Citrus-Vodka.jpg"
 	},
 	{
 		"itemId": "store_2",
 		"name": "Triple Sec",
 		"price": 25,
 		"category": "Liquor",
-		"image": "https://products2.imgix.drizly.com/ci-dekuyper-triple-sec-liqueur-ae1c27f3f3c6b1df.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"
+		"image": "Images/Store/Triple-Sec.jpeg"
 	},
 	{
 		"itemId": "store_3",
 		"name": "Cranberry Juice",
 		"price": 10,
 		"category": "Soft Drink",
-		"image": "https://www.oceanspray.com/-/media/Project/OS/Brand-Sites/OceanSpray/Master/Intl-Master/Products/Detail/Cranberry-Juice-Cocktail.ashx"
+		"image": "Images/Store/Cranberry-Juice.png"
 	},
 	{
 		"itemId": "store_4",
 		"name": "White Rum",
 		"price": 30,
 		"category": "Rum",
-		"image": "https://dydza6t6xitx6.cloudfront.net/ci-captain-morgan-white-rum-61823ea15841b885.jpeg"
+		"image": "Images/Store/White-Rum.jpeg"
 	},
 	{
 		"itemId": "store_5",
 		"name": "Pineapple Juice",
 		"price": 10,
 		"category": "Soft Drink",
-		"image": "https://www.dollargeneral.com/media/catalog/product/cache/image/beff4985b56e3afdbeabfc89641a4582/6/0/6021401.jpg"
+		"image": "Images/Store/Pineapple-Juice.jpg"
 	},
 	{
 		"itemId": "store_6",
 		"name": "Tequila",
 		"price": 30,
 		"category": "Tequila",
-		"image": "https://cdn11.bigcommerce.com/s-e6b77/images/stencil/500x659/products/18469/18827/don-julio-blanco-tequila__53422.1496361517.jpg?c=2&imbypass=on"
+		"image": "Images/Store/Tequila.jpg"
 	},
 	{
 		"itemId": "store_7",
 		"name": "Lime Juice",
 		"price": 10,
 		"category": "Soft Drink",
-		"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_426823072.jpeg?h=540&w=540"
+		"image": "Images/Store/Lime-Juice.jpeg"
 	},
 	{
 		"itemId": "store_8",
 		"name": "Coca Cola",
 		"price": 10,
 		"category": "Soft Drink",
-		"image": "https://driftbasket.com/wp-content/uploads/2019/02/Coca-Cola.jpg"
+		"image": "Images/Store/Coca-Cola.jpg"
 	},
 	{
 		"itemId": "store_9",
 		"name": "Vodka",
 		"price": 35,
 		"category": "Vodka",
-		"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_214572791.jpeg?h=540&w=540"
+		"image": "Images/Store/Vodka.jpeg"
 	},
 	{
 		"itemId": "store_10",
 		"name": "Pineapple Schnapps",
 		"price": 15,
 		"category": "Liqueur",
-		"image": "https://milehidistilling.com/wp-content/uploads/2016/01/pineapple-schnapps-essence.jpg"
+		"image": "Images/Store/Pineapple-Schnapps.jpg"
 	},
 	{
 		"itemId": "store_11",
 		"name": "Orange Juice",
 		"price": 15,
 		"category": "Soft Drink",
-		"image": "https://www.tropicana.com/images/default-source/us-site/52oz/product-tiles/tpp/prodcut_tiles_0001_tpp_homestyle.png"
+		"image": "Images/Store/Orange-Juice.png"
 	},
 	{
 		"itemId": "store_12",
 		"name": "Strawberry Liqueur",
 		"price": 15,
 		"category": "Liqueur",
-		"image": "https://img.thewhiskyexchange.com/540/liq_fra3.jpg"
+		"image": "Images/Store/Strawberry.jpg"
 	},
 	{
 		"itemId": "store_13",
 		"name": "Campari",
 		"price": 15,
 		"category": "Liqueur",
-		"image": "https://dydza6t6xitx6.cloudfront.net/ci-campari-9fd021ee92f1aa3a.jpeg"
+		"image": "Images/Store/Campari.jpeg"
 	},
 	{
 		"itemId": "store_14",
 		"name": "Coffee Liqueur",
 		"price": 16,
 		"category": "Liqueur",
-		"image": "https://products3.imgix.drizly.com/ci-kahlua-da368ed96ab8b622.png?auto=format%2Ccompress&fm=jpeg&q=20"
+		"image": "Images/Store/Coffee-Liqueur.jpg"
 	},
 	{
 		"itemId": "store_15",
 		"name": "Amaretto",
 		"price": 16,
 		"category": "Liqueur",
-		"image": "https://dydza6t6xitx6.cloudfront.net/ci-disaronno-originale-amaretto-02f22ebe37e1d171.png"
+		"image": "Images/Store/Amaretto.png"
 	},
 	{
 		"itemId": "store_16",
 		"name": "Schweppes",
 		"price": 10,
 		"category": "Soft Drink",
-		"image": "https://m.pricez.co.il/ProductPictures/7290012404238.jpg"
+		"image": "Images/Store/Schweppes.jpg"
 	},
 	{
 		"itemId": "store_17",
 		"name": "Corona 6 pack",
 		"price": 45,
 		"category": "Beer",
-		"image": "https://www.hitimewine.net/pub/media/catalog/product/cache/c091ef529c763738eeb6b852475e9ac9/corona-extra-bottle-12oz-6-pack-i-491561_1.JPG"
+		"image": "Images/Store/Corona.jpg"
 	},
 	{
 		"itemId": "store_18",
 		"name": "Tuborg 6 pack",
 		"price": 40,
 		"category": "Beer",
-		"image": "https://img.zap.co.il/pics/7/5/2/1/43271257c.gif"
+		"image": "Images/Store/Tuborg.gif"
 	},
 	{
 		"itemId": "store_19",
 		"name": "Carlsberg 6 pack",
 		"price": 43,
 		"category": "Beer",
-		"image": "https://files-ptdpritol.netdna-ssl.com/system/photos/935284/large/910479b69013ab5e025686b833924efc.jpg"
+		"image": "Images/Store/Carlsberg.jpg"
 	},
 	{
 		"itemId": "store_20",
 		"name": "Heineken 6 pack",
 		"price": 45,
 		"category": "Beer",
-		"image": "https://cashcow-cdn.azureedge.net/images/2699fb1b-78ca-4b0c-b9f3-ac16f917f444.jpg"
+		"image": "Images/Store/heineken.jpg"
 	}
 ]

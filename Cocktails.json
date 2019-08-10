@@ -4,28 +4,28 @@
 			"name": "Cosmopolitan",
 			"description": "THE INGREDIENTS\n37 1/2 ml Citrus Vodka, 12 1/2 ml Triple Sec, 30 ml Cranberry Juice, 1/2 squeezed lemon, 12 1/2 ml Sugar Syrup\n\nHOW TO MAKE A COSMOPOLITAN\nChill coupe glass with soda water. Add all ingredients to mixing tin with ice. Shake for 10 to 15 seconds. Fine strain into the chilled coupe glass. Flame an orange peel and place in drink as garnish.",
 			"price": 70,
-			"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/Cosmopolitan-1-200x254.jpg",
+			"image": "Images/Cocktails/Cosmopolitan.jpg",
 			"items":[
 					{
 						"itemId": "store_1",
 						"name": "Citrus Vodka",
 						"price": 35,
 						"category": "Vodka",
-						"image": "https://cdn2.bigcommerce.com/server5500/tpbc2s65/products/394/images/8458/Smirnoff_Citrus_Vodka_large__88873.1496774259.380.500.jpg?c=2"
+						"image": "Images/Store/Citrus-Vodka.jpg"
 					},
 					{
 						"itemId": "store_2",
 						"name": "Triple Sec",
 						"price": 25,
 						"category": "Liqueur",
-						"image": "https://products2.imgix.drizly.com/ci-dekuyper-triple-sec-Liqueureur-ae1c27f3f3c6b1df.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"
+						"image": "Images/Store/Triple-Sec.jpeg"
 					},
 					{
 						"itemId": "store_3",
 						"name": "Cranberry Juice",
 						"price": 10,
 						"category": "Soft Drink",
-						"image": "https://www.oceanspray.com/-/media/Project/OS/Brand-Sites/OceanSpray/Master/Intl-Master/Products/Detail/Cranberry-Juice-Cocktail.ashx"
+						"image": "Images/Store/Cranberry-Juice.png"
 					}
 			]
 	},
@@ -34,21 +34,21 @@
 		"name": "Pina Colada",
 		"description": "THE INGREDIENTS\n50 ml White Rum, 100 ml Pineapple Juice, 25 ml Coconut Cream, 25 ml Cream, Pineapple Slice, pinch of Salt\n\nHOW TO MAKE A PINA COLADA\nChill highball glass. Add all ingredients to mixing tin and fill with ice. Shake vigorously for 10 – 15 seconds. Fill highball glass with fresh ice and strain drink into glass. Garnish with pineapple slice, add straw and serve.",
 		"price": 40,
-		"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/Pina-Colada-200x275.jpg",
+		"image": "Images/Cocktails/Pina-Colada.jpg",
 		"items":[
 			{
 				"itemId": "store_4",
 				"name": "White Rum",
 				"price": 30,
 				"category": "Rum",
-				"image": "https://dydza6t6xitx6.cloudfront.net/ci-captain-morgan-white-rum-61823ea15841b885.jpeg"
+				"image": "Images/Store/White-Rum.jpeg"
 			},
 			{
 				"itemId": "store_5",
 				"name": "Pineapple Juice",
 				"price": 10,
 				"category": "Soft Drink",
-				"image": "https://www.dollargeneral.com/media/catalog/product/cache/image/beff4985b56e3afdbeabfc89641a4582/6/0/6021401.jpg"
+				"image": "Images/Store/Pineapple-Juice.jpg"
 			}
 		]
 	},
@@ -57,28 +57,28 @@
 		"name": "Margarita",
 		"description": "THE INGREDIENTS\n37 1/2 ml Tequila, 12 1/2 ml Triple Sec, 25 ml Lime Juice, 12 1/2 ml Simple Syrup, salt\n\nHOW TO MAKE A MARGARITA\nBegin by half soaking rim of coupe glass with lime juice and then dab in salt. Use cloth to tidy up the glass for presentation. Add all ingredients into mixing tin with 2 ice cubes and dry shake for 10 seconds. Fill mixing tin with ice and shake for a further 10 – 15 seconds. Fine strain into the pre-prepared coupe glass.",
 		"price": 57,
-		"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/Margarita-206x300-200x275.jpg",
+		"image": "Images/Cocktails/Margarita.jpg",
 		"items":[
 			{
 				"itemId": "store_6",
 				"name": "Tequila",
 				"price": 30,
 				"category": "Tequila",
-				"image": "https://cdn11.bigcommerce.com/s-e6b77/images/stencil/500x659/products/18469/18827/don-julio-blanco-tequila__53422.1496361517.jpg?c=2&imbypass=on"
+				"image": "Images/Store/Tequila.jpg"
 			},
 			{
 				"itemId": "store_2",
 				"name": "Triple Sec",
 				"price": 17,
 				"category": "Liqueur",
-				"image": "https://products2.imgix.drizly.com/ci-dekuyper-triple-sec-Liqueureur-ae1c27f3f3c6b1df.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"
+				"image": "Images/Store/Triple-Sec.jpeg"
 			},
 			{
 				"itemId": "store_7",
 				"name": "Lime Juice",
 				"price": 10,
 				"category": "Soft Drink",
-				"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_426823072.jpeg?h=540&w=540"
+				"image": "Images/Store/Lime-Juice.jpeg"
 			}
 		]
 	},
@@ -87,21 +87,21 @@
 		"name": "Cuba Libre",
 		"description": "THE INGREDIENTS\n50 ml Anejo Rum, 8 Lime wedges, 100 ml Cola, Lime wedge\n\nHOW TO MAKE A CUBA LIBRE\nAdd rum into rocks glass and squeeze the lime wedges over the top. Give quick churn with bar spoon and top up with ice. Fill to brim with cola and add in lime wedge as garnish.",
 		"price": 50,
-		"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/Cuba-Libre-200x275.jpg",
+		"image": "Images/Cocktails/Cuba-Libre.jpg",
 		"items":[
 			{
 				"itemId": "store_4",
 				"name": "White Rum",
 				"price": 30,
 				"category": "Rum",
-				"image": "https://dydza6t6xitx6.cloudfront.net/ci-captain-morgan-white-rum-61823ea15841b885.jpeg"
+				"image": "Images/Store/White-Rum.jpeg"
 			},
 			{
 				"itemId": "store_8",
 				"name": "Coca Cola",
 				"price": 10,
 				"category": "Soft Drink",
-				"image": "https://driftbasket.com/wp-content/uploads/2019/02/Coca-Cola.jpg"
+				"image": "Images/Store/Coca-Cola.jpg"
 			}
 		]
 	},
@@ -110,35 +110,35 @@
 	"name": "Sex On The Beach",
 	"description": "THE INGREDIENTS\n25 ml Vodka / 25 ml Peach Schnapps / 40 ml Orange Juice / 20 ml Cranberry Juice / Orange Slice for Garnish\n\nHOW TO MAKE A SEX ON THE BEACH\nPour all ingredients into a cocktail shaker.\nShake well.\nPour into a highball glass filled with ice.\nGarnish with the orange slice.",
 	"price": 75,
-	"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/sex-on-the-beach-cocktail-recipe-200x275.jpg",
+	"image": "Images/Cocktails/sex-on-the-beach.jpg",
 	"items":[
 		{
 			"itemId": "store_9",
 			"name": "Vodka",
 			"price": 35,
 			"category": "Vodka",
-			"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_214572791.jpeg?h=540&w=540"
+			"image": "Images/Store/Vodka.jpeg"
 		},
 		{
 			"itemId": "store_10",
 			"name": "Pineapple Schnapps",
 			"price": 15,
 			"category": "Liqueur",
-			"image": "https://milehidistilling.com/wp-content/uploads/2016/01/pineapple-schnapps-essence.jpg"
+			"image": "Images/Store/Pineapple-Schnapps.jpg"
 		},
 		{
 			"itemId": "store_11",
 			"name": "Orange Juice",
 			"price": 15,
 			"category": "Soft Drink",
-			"image": "https://www.tropicana.com/images/default-source/us-site/52oz/product-tiles/tpp/prodcut_tiles_0001_tpp_homestyle.png"
+			"image": "Images/Store/Orange-Juice.png"
 		},
 		{
 			"itemId": "store_3",
 			"name": "Cranberry Juice",
 			"price": 10,
 			"category": "Soft Drink",
-			"image": "https://www.oceanspray.com/-/media/Project/OS/Brand-Sites/OceanSpray/Master/Intl-Master/Products/Detail/Cranberry-Juice-Cocktail.ashx"
+			"image": "Images/Store/Cranberry-Juice.png"
 		}
 	]
 	},
@@ -147,28 +147,28 @@
 		"name": "Strawberry Daiquiri",
 		"description": "THE INGREDIENTS\n37 `1/2 ml Bacardi Rum, 12 1/2 ml Strawberry Liqueureur, 25 ml Lime Juice, 12 1/2 ml Sugar Syrup, 1 Strawberry\n\nHOW TO MAKE A STRAWBERRY DAIQUIRI\nAdd all ingredients into a Boston Shaker and fill with ice. Shake for about 15 seconds and then strain into a chilled martini glass. Garnish with a strawberry.",
 		"price": 55,
-		"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/Strawberry-Daiquiri-200x275.jpg",
+		"image": "Images/Cocktails/Strawberry-Daiquiri.jpg",
 		"items":[
 			{
 				"itemId": "store_4",
 				"name": "White Rum",
 				"price": 30,
 				"category": "Rum",
-				"image": "https://dydza6t6xitx6.cloudfront.net/ci-captain-morgan-white-rum-61823ea15841b885.jpeg"
+				"image": "Images/Store/White-Rum.jpeg"
 			},
 			{
 				"itemId": "store_7",
 				"name": "Lime Juice",
 				"price": 10,
 				"category": "Soft Drink",
-				"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_426823072.jpeg?h=540&w=540"
+				"image": "Images/Store/Lime-Juice.jpeg"
 			},
 			{
 				"itemId": "store_12",
 				"name": "Strawberry Liqueur",
 				"price": 15,
 				"category": "Liqueur",
-				"image": "https://img.thewhiskyexchange.com/540/liq_fra3.jpg"
+				"image": "Images/Store/Strawberry.jpg"
 			}
 		]
 	},
@@ -177,21 +177,21 @@
 		"name": "Moscow Mule",
 		"description": "THE INGREDIENTS\n37 1/2 ml Vodka, 25 ml Lime juice, 12 1/2 ml Sugar Syrup, splash Ginger Beer\n\nHOW TO MAKE A MOSCOW MULE\nChill highball glass with ice and soda. Add all ingredients apart from ginger beer into mixing tin. Fill tin with ice and shake for about 10 – 15 seconds. Fill glass with fresh ice. Add splash of ginger beer to bottom of glass and strain drink into glass. Add straw and garnish with lime wedge.",
 		"price": 45,
-		"image": "https://www.socialandcocktail.co.uk/wp-content/uploads/2011/12/Moscow-Mule-1-200x275.jpg",
+		"image": "Images/Cocktails/Moscow-Mule.jpg",
 		"items":[
 			{
 				"itemId": "store_9",
 				"name": "Vodka",
 				"price": 35,
 				"category": "Vodka",
-				"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_214572791.jpeg?h=540&w=540"
+				"image": "Images/Store/Vodka.jpeg"
 			},
 			{
 				"itemId": "store_7",
 				"name": "Lime Juice",
 				"price": 10,
 				"category": "Soft Drink",
-				"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_426823072.jpeg?h=540&w=540"
+				"image": "Images/Store/Lime-Juice.jpeg"
 			}
 		]
 	}
