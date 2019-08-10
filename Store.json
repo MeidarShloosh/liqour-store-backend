@@ -82,5 +82,61 @@
 		"price": 15,
 		"category": "Liqueur",
 		"image": "https://img.thewhiskyexchange.com/540/liq_fra3.jpg"
+	},
+	{
+		"itemId": "store_13",
+		"name": "Campari",
+		"price": 15,
+		"category": "Liqueur",
+		"image": "https://dydza6t6xitx6.cloudfront.net/ci-campari-9fd021ee92f1aa3a.jpeg"
+	},
+	{
+		"itemId": "store_14",
+		"name": "Coffee Liqueur",
+		"price": 16,
+		"category": "Liqueur",
+		"image": "https://products3.imgix.drizly.com/ci-kahlua-da368ed96ab8b622.png?auto=format%2Ccompress&fm=jpeg&q=20"
+	},
+	{
+		"itemId": "store_15",
+		"name": "Amaretto",
+		"price": 16,
+		"category": "Liqueur",
+		"image": "https://dydza6t6xitx6.cloudfront.net/ci-disaronno-originale-amaretto-02f22ebe37e1d171.png"
+	},
+	{
+		"itemId": "store_16",
+		"name": "Schweppes",
+		"price": 10,
+		"category": "Soft Drink",
+		"image": "https://m.pricez.co.il/ProductPictures/7290012404238.jpg"
+	},
+	{
+		"itemId": "store_17",
+		"name": "Corona 6 pack",
+		"price": 45,
+		"category": "Beer",
+		"image": "https://www.hitimewine.net/pub/media/catalog/product/cache/c091ef529c763738eeb6b852475e9ac9/corona-extra-bottle-12oz-6-pack-i-491561_1.JPG"
+	},
+	{
+		"itemId": "store_18",
+		"name": "Tuborg 6 pack",
+		"price": 40,
+		"category": "Beer",
+		"image": "https://img.zap.co.il/pics/7/5/2/1/43271257c.gif"
+	},
+	{
+		"itemId": "store_19",
+		"name": "Carlsberg 6 pack",
+		"price": 43,
+		"category": "Beer",
+		"image": "https://files-ptdpritol.netdna-ssl.com/system/photos/935284/large/910479b69013ab5e025686b833924efc.jpg"
+	},
+	{
+		"itemId": "store_20",
+		"name": "Heineken 6 pack",
+		"price": 45,
+		"category": "Beer",
+		"image": "https://cashcow-cdn.azureedge.net/images/2699fb1b-78ca-4b0c-b9f3-ac16f917f444.jpg"
 	}
 ]
