@@ -3,14 +3,70 @@
     "itemId": "accessory_1",
     "name": "Premium Shaker",
     "price": 20,
-    "category": "Accessories",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51PfZk%2B87cL._SX425_.jpg"
+    "category": "Cocktail",
+    "image": "Images/Accessories/Shaker.jpg"
   },
   {
     "itemId": "accessory_2",
     "name": "Ice Bucket",
     "price": 10,
-    "category": "Accessories",
-    "image": "https://5.imimg.com/data5/CI/BC/MY-6522548/ice-bucket-500x500.png"
+    "category": "General",
+    "image": "Images/Accessories/Ice_Bucket.png"
+  },
+  {
+    "itemId": "accessory_3",
+    "name": "Cocktail Umbrellas 50pc",
+    "price": 25,
+    "category": "Cocktail",
+    "image": "Images/Accessories/Cocktail_Umbrellas.jpg"
+  },
+  {
+    "itemId": "accessory_4",
+    "name": "Cocktail Glass",
+    "price": 10,
+    "category": "Glasses",
+    "image": "Images/Accessories/Cocktail_Glass_1.jpg"
+  },
+  {
+    "itemId": "accessory_5",
+    "name": "Shaped Cocktail Glasse",
+    "price": 15,
+    "category": "Glasses",
+    "image": "Images/Accessories/Cocktail_Glass_2.jpg"
+  },
+  {
+    "itemId": "accessory_6",
+    "name": "Whiskey Glasses 2pc",
+    "price": 40,
+    "category": "Glasses",
+    "image": "Images/Accessories/Whiskey_Glasses.jpg"
+  },
+  {
+    "itemId": "accessory_7",
+    "name": "Pourer",
+    "price": 10,
+    "category": "General",
+    "image": "Images/Accessories/Pourer.jpg"
+  },
+  {
+    "itemId": "accessory_8",
+    "name": "Shot Glasses 6pc",
+    "price": 30,
+    "category": "Glasses",
+    "image": "Images/Accessories/Shot_Glasses.jpg"
+  },
+  {
+    "itemId": "accessory_9",
+    "name": "Straws 100pc",
+    "price": 10,
+    "category": "General",
+    "image": "Images/Accessories/Straws.jpg"
+  },
+  {
+    "itemId": "accessory_10",
+    "name": "Multi-purpose Bottle Opener",
+    "price": 20,
+    "category": "General",
+    "image": "Images/Accessories/Bottle_Opener.jpg"
   }
 ]

@@ -2,15 +2,71 @@
   {
     "itemId": "snack_1",
     "name": "Salted Peanuts",
-    "price": 10,
-    "category": "Snacks",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/81fiHSTpXaL._SL1500_.jpg"
+    "price": 5,
+    "category": "Nuts",
+    "image": "Images/Snacks/Peanuts_Salted.jpg"
   },
   {
     "itemId": "snack_2",
     "name": "Jumbo Coated Peanuts",
-    "price": 30,
-    "category": "Snacks",
-    "image": "https://cdn.shopify.com/s/files/1/0635/2427/products/Chilli_Peanuts_large.png?v=1453404810"
+    "price": 25,
+    "category": "Nuts",
+    "image": "Images/Snacks/Peanuts_Combo.png"
+  },
+  {
+    "itemId": "snack_3",
+    "name": "Apropo",
+    "price": 5,
+    "category": "Apropo",
+    "image": "Images/Snacks/Apropo.jpg"
+  },
+  {
+    "itemId": "snack_4",
+    "name": "Italian Style Flavored Apropo",
+    "price": 7,
+    "category": "Apropo",
+    "image": "Images/Snacks/Apropo_Italian.jpg"
+  },
+  {
+    "itemId": "snack_5",
+    "name": "Bagels Flaties",
+    "price": 10,
+    "category": "Bagel",
+    "image": "Images/Snacks/Bagel.jpg"
+  },
+  {
+    "itemId": "snack_6",
+    "name": "Doritos",
+    "price": 7,
+    "category": "Crisps",
+    "image": "Images/Snacks/Doritos.png"
+  },
+  {
+    "itemId": "snack_7",
+    "name": "Grill Flavored Bisli",
+    "price": 5,
+    "category": "Bisli",
+    "image": "Images/Snacks/Bisli_Grill.jpg"
+  },
+  {
+    "itemId": "snack_8",
+    "name": "Pizza Flavored Bisli",
+    "price": 5,
+    "category": "Bisli",
+    "image": "Images/Snacks/Bisli_Pizza.png"
+  },
+  {
+    "itemId": "snack_9",
+    "name": "Onion & Sour Cream Flavored Nishnushim",
+    "price": 15,
+    "category": "Crisps",
+    "image": "Images/Snacks/Nishnushim.png"
+  },
+  {
+    "itemId": "snack_10",
+    "name": "Qabucs",
+    "price": 5,
+    "category": "Nuts",
+    "image": "Images/Snacks/Qabucs.png"
   }
 ]
