@@ -1,16 +1,86 @@
 [
-		{
-			"itemId": "store_1",
-			"name": "Goldstar Unfilterd",
-			"price": 15,
-			"category": "Beer",
-			"image": "https://supply.layam.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/3/7/3717429.jpg"
-		},
-		{
-			"itemId": "store_2",
-			"name": "Smirnoff",
-			"price": 40,
-			"category": "Vodka",
-			"image": "https://edgmedia.bws.com.au/bws/media/products/907623-1.png?impolicy=Prod_MD"
-		}
+	{
+		"itemId": "store_1",
+		"name": "Citrus Vodka",
+		"price": 45,
+		"category": "Vodka",
+		"image": "https://cdn2.bigcommerce.com/server5500/tpbc2s65/products/394/images/8458/Smirnoff_Citrus_Vodka_large__88873.1496774259.380.500.jpg?c=2"
+	},
+	{
+		"itemId": "store_2",
+		"name": "Triple Sec",
+		"price": 25,
+		"category": "Liquor",
+		"image": "https://products2.imgix.drizly.com/ci-dekuyper-triple-sec-liqueur-ae1c27f3f3c6b1df.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"
+	},
+	{
+		"itemId": "store_3",
+		"name": "Cranberry Juice",
+		"price": 10,
+		"category": "Soft Drink",
+		"image": "https://www.oceanspray.com/-/media/Project/OS/Brand-Sites/OceanSpray/Master/Intl-Master/Products/Detail/Cranberry-Juice-Cocktail.ashx"
+	},
+	{
+		"itemId": "store_4",
+		"name": "White Rum",
+		"price": 30,
+		"category": "Rum",
+		"image": "https://dydza6t6xitx6.cloudfront.net/ci-captain-morgan-white-rum-61823ea15841b885.jpeg"
+	},
+	{
+		"itemId": "store_5",
+		"name": "Pineapple Juice",
+		"price": 10,
+		"category": "Soft Drink",
+		"image": "https://www.dollargeneral.com/media/catalog/product/cache/image/beff4985b56e3afdbeabfc89641a4582/6/0/6021401.jpg"
+	},
+	{
+		"itemId": "store_6",
+		"name": "Tequila",
+		"price": 30,
+		"category": "Tequila",
+		"image": "https://cdn11.bigcommerce.com/s-e6b77/images/stencil/500x659/products/18469/18827/don-julio-blanco-tequila__53422.1496361517.jpg?c=2&imbypass=on"
+	},
+	{
+		"itemId": "store_7",
+		"name": "Lime Juice",
+		"price": 10,
+		"category": "Soft Drink",
+		"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_426823072.jpeg?h=540&w=540"
+	},
+	{
+		"itemId": "store_8",
+		"name": "Coca Cola",
+		"price": 10,
+		"category": "Soft Drink",
+		"image": "https://driftbasket.com/wp-content/uploads/2019/02/Coca-Cola.jpg"
+	},
+	{
+		"itemId": "store_9",
+		"name": "Vodka",
+		"price": 35,
+		"category": "Vodka",
+		"image": "https://digitalcontent.api.tesco.com/v1/media/ghs/snapshotimagehandler_214572791.jpeg?h=540&w=540"
+	},
+	{
+		"itemId": "store_10",
+		"name": "Pineapple Schnapps",
+		"price": 15,
+		"category": "Liqueur",
+		"image": "https://milehidistilling.com/wp-content/uploads/2016/01/pineapple-schnapps-essence.jpg"
+	},
+	{
+		"itemId": "store_11",
+		"name": "Orange Juice",
+		"price": 15,
+		"category": "Soft Drink",
+		"image": "https://www.tropicana.com/images/default-source/us-site/52oz/product-tiles/tpp/prodcut_tiles_0001_tpp_homestyle.png"
+	},
+	{
+		"itemId": "store_12",
+		"name": "Strawberry Liqueur",
+		"price": 15,
+		"category": "Liqueur",
+		"image": "https://img.thewhiskyexchange.com/540/liq_fra3.jpg"
+	}
 ]
